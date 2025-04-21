@@ -67,9 +67,9 @@ The Value Bet Calculator extension is designed with your privacy in mind:
 
 ### From Browser Stores
 
-- **Chrome**: [Chrome Web Store]([https://chrome.google.com/webstore/search/value%20bet%20calculator](https://chromewebstore.google.com/detail/value-bet-calculator/ecpolligfbgacipimpmckmimlfnhkdff))
-- **Firefox**: [Firefox Add-ons]([https://addons.mozilla.org/en-US/firefox/search/?q=value%20bet%20calculator](https://addons.mozilla.org/en-US/firefox/addon/value-bet-calculator/))
-- **Microsoft Edge**: [Edge Add-ons]([https://microsoftedge.microsoft.com/addons/search/value%20bet%20calculator](https://microsoftedge.microsoft.com/addons/detail/value-bet-calculator/ohfhmlekaeelkepncjafikpnbdfeegpj))
+- **Chrome**: [Chrome Web Store]([https://chromewebstore.google.com/detail/value-bet-calculator/ecpolligfbgacipimpmckmimlfnhkdff)
+- **Firefox**: [Firefox Add-ons]([https://addons.mozilla.org/en-US/firefox/addon/value-bet-calculator/)
+- **Microsoft Edge**: [Edge Add-ons]([https://microsoftedge.microsoft.com/addons/detail/value-bet-calculator/ohfhmlekaeelkepncjafikpnbdfeegpj)
 
 
 ### Manual Installation
