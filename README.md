@@ -77,7 +77,7 @@ The Value Bet Calculator extension is designed with your privacy in mind:
 1. Download the latest release ZIP file from the [releases page](https://github.com/OscarWilliamsChecklive/value-bet-calculator/releases)
 2. Extract the ZIP file to a folder on your computer
 3. In your browser, navigate to the extensions page:
-   - Chrome: [Chrome Web Store]([https://chromewebstore.google.com/detail/value-bet-calculator/ecpolligfbgacipimpmckmimlfnhkdff)
+   - Chrome: [Chrome Web Store](https://chromewebstore.google.com/detail/value-bet-calculator/ecpolligfbgacipimpmckmimlfnhkdff)
    - Firefox: [Firefox Add-ons]([https://addons.mozilla.org/en-US/firefox/addon/value-bet-calculator/)
    - Edge: [Edge Add-ons]([https://microsoftedge.microsoft.com/addons/detail/value-bet-calculator/ohfhmlekaeelkepncjafikpnbdfeegpj)
    - Opera: `opera://extensions`
