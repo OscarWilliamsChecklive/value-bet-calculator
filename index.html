@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Value Bet Calculator - A free browser extension that helps you identify profitable betting opportunities in football, basketball, and ice hockey by calculating the true value of odds.">
+    <meta name="keywords" content="value bet, sports betting, betting calculator, football betting, basketball betting, ice hockey betting, expected value">
+    <title>Value Bet Calculator - Smarter Sports Betting Tool</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #1a73e8;
+            --primary-light: #e8f0fe;
+            --primary-dark: #1558b7;
+            --success-color: #0d904f;
+            --danger-color: #d93025;
+            --neutral-bg: #f5f7fa;
+            --dark-text: #333;
+            --light-text: #666;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.08);
+            --radius: 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: var(--neutral-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            width: 100%;
+            flex: 1;
+        }
+        
+        /* Header Section */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--light-text);
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+        
+        /* Calculator Section */
+        .calculator-section {
+            max-width: 580px;
+            margin: 0 auto 60px;
+            background-color: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .calculator-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .calculator-title {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .calculator-subtitle {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-text);
+        }
+        
+        input[type="number"] {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: var(--radius);
+            transition: border-color 0.2s;
+        }
+        
+        input[type="number"]:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+        }
+        
+        button {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 14px;
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        button:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .result-container {
+            margin-top: 25px;
+            text-align: center;
+            padding: 20px;
+            border-radius: var(--radius);
+            background-color: #f8f9fa;
+            display: none;
+        }
+        
+        .result-container.positive {
+            background-color: rgba(13, 144, 79, 0.1);
+            border: 1px solid rgba(13, 144, 79, 0.2);
+            color: var(--success-color);
+            display: block;
+        }
+        
+        .result-container.negative {
+            background-color: rgba(217, 48, 37, 0.1);
+            border: 1px solid rgba(217, 48, 37, 0.2);
+            color: var(--danger-color);
+            display: block;
+        }
+        
+        .result-label {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .result-value {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .result-explanation {
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+        
+        /* Links Section */
+        .links-section {
+            max-width: 580px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            padding: 25px;
+        }
+        
+        .links-title {
+            text-align: center;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--dark-text);
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 15px;
+        }
+        
+        .link-card {
+            padding: 15px;
+            background-color: var(--primary-light);
+            border-radius: var(--radius);
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .link-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .link-card a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: block;
+            padding: 5px;
+        }
+        
+        .link-card a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-top: 1px solid #eee;
+            font-size: 0.9rem;
+            color: var(--light-text);
+            margin-top: 40px;
+        }
+        
+        .extension-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .extension-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .calculator-section, .links-section {
+                padding: 20px;
+            }
+            
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+            
+            .calculator-title {
+                font-size: 1.4rem;
+            }
+            
+            .result-value {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Value Bet Calculator</h1>
+            <p class="tagline">Smarter sports betting starts here.</p>
+        </header>
+        
+        <section class="calculator-section">
+            <div class="calculator-header">
+                <h2 class="calculator-title">Calculate Your Betting Value</h2>
+                <p class="calculator-subtitle">Find out if the odds offer real value based on your probability estimate</p>
+            </div>
+            
+            <div class="input-group">
+                <label for="odds">Bookmaker Odds</label>
+                <input type="number" id="odds" min="1.01" step="0.01" placeholder="e.g., 2.00">
+            </div>
+            
+            <div class="input-group">
+                <label for="probability">Estimated Probability (%)</label>
+                <input type="number" id="probability" min="1" max="99" placeholder="e.g., 60">
+            </div>
+            
+            <button id="calculate-btn">Calculate Value</button>
+            
+            <div class="result-container" id="result-container">
+                <div class="result-label">Value:</div>
+                <div class="result-value" id="result-value">+0.20</div>
+                <div class="result-explanation" id="result-explanation">This bet has a positive expected value, indicating a potentially profitable opportunity.</div>
+            </div>
+        </section>
+        
+        <section class="links-section">
+            <h3 class="links-title">Useful Resources</h3>
+            <div class="links-grid">
+                <div class="link-card">
+                    <a href="https://checklive.com" target="_blank">Visit CheckLive.com</a>
+                </div>
+                <div class="link-card">
+                    <a href="https://checklive.com/sport-football" target="_blank">Football Betting</a>
+                </div>
+                <div class="link-card">
+                    <a href="https://checklive.com/sport-basketball" target="_blank">Basketball Betting</a>
+                </div>
+                <div class="link-card">
+                    <a href="https://checklive.com/sport-ice-hockey" target="_blank">Ice Hockey Betting</a>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>Value Bet Calculator &copy; 2024. All rights reserved.</p>
+        <a href="https://github.com/OscarWilliamsChecklive/value-bet-calculator" class="extension-link">Get the browser extension</a>
+    </footer>
+    
+    <script>
+        // Calculate value when the button is clicked
+        document.getElementById('calculate-btn').addEventListener('click', calculateValue);
+        
+        // Also calculate when Enter key is pressed in either input field
+        document.getElementById('odds').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') calculateValue();
+        });
+        
+        document.getElementById('probability').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') calculateValue();
+        });
+        
+        function calculateValue() {
+            // Get input values
+            const odds = parseFloat(document.getElementById('odds').value);
+            const probability = parseFloat(document.getElementById('probability').value) / 100;
+            
+            // Validate inputs
+            if (isNaN(odds) || isNaN(probability) || odds < 1.01 || probability <= 0 || probability >= 1) {
+                alert('Please enter valid values:\n- Odds must be greater than 1.01\n- Probability must be between 1 and 99');
+                return;
+            }
+            
+            // Calculate value
+            const value = (probability * odds - 1).toFixed(2);
+            const resultValue = document.getElementById('result-value');
+            const resultContainer = document.getElementById('result-container');
+            const resultExplanation = document.getElementById('result-explanation');
+            
+            // Update display
+            resultValue.textContent = value > 0 ? `+${value}` : value;
+            
+            // Apply styling based on value
+            resultContainer.className = 'result-container';
+            if (parseFloat(value) > 0) {
+                resultContainer.classList.add('positive');
+                resultExplanation.textContent = 'This bet has a positive expected value, indicating a potentially profitable opportunity.';
+            } else {
+                resultContainer.classList.add('negative');
+                resultExplanation.textContent = 'This bet has a negative expected value and may not be worth pursuing.';
+            }
+            
+            // Show the result
+            resultContainer.style.display = 'block';
+        }
+    </script>
+</body>
+</html> 
