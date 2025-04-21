@@ -67,19 +67,19 @@ The Value Bet Calculator extension is designed with your privacy in mind:
 
 ### From Browser Stores
 
-- **Chrome**: [Chrome Web Store]([https://chromewebstore.google.com/detail/value-bet-calculator/ecpolligfbgacipimpmckmimlfnhkdff)
-- **Firefox**: [Firefox Add-ons]([https://addons.mozilla.org/en-US/firefox/addon/value-bet-calculator/)
-- **Microsoft Edge**: [Edge Add-ons]([https://microsoftedge.microsoft.com/addons/detail/value-bet-calculator/ohfhmlekaeelkepncjafikpnbdfeegpj)
-
+- **Chrome**: [Chrome Web Store](https://chromewebstore.google.com/detail/value-bet-calculator/ecpolligfbgacipimpmckmimlfnhkdff)
+- **Firefox**: [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/value-bet-calculator/)
+- **Microsoft Edge**: [Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/value-bet-calculator/ohfhmlekaeelkepncjafikpnbdfeegpj)
+- **Opera**: [Opera Add-ons](https://addons.opera.com/en/search/?query=value%20bet%20calculator)
 
 ### Manual Installation
 
 1. Download the latest release ZIP file from the [releases page](https://github.com/OscarWilliamsChecklive/value-bet-calculator/releases)
 2. Extract the ZIP file to a folder on your computer
 3. In your browser, navigate to the extensions page:
-   - Chrome: [Chrome Web Store](https://chromewebstore.google.com/detail/value-bet-calculator/ecpolligfbgacipimpmckmimlfnhkdff)
-   - Firefox: [Firefox Add-ons]([https://addons.mozilla.org/en-US/firefox/addon/value-bet-calculator/)
-   - Edge: [Edge Add-ons]([https://microsoftedge.microsoft.com/addons/detail/value-bet-calculator/ohfhmlekaeelkepncjafikpnbdfeegpj)
+   - Chrome: `chrome://extensions/`
+   - Firefox: `about:debugging#/runtime/this-firefox`
+   - Edge: `edge://extensions/`
    - Opera: `opera://extensions`
 4. Enable "Developer Mode"
 5. Click "Load unpacked" (or equivalent) and select the extracted folder
@@ -108,7 +108,7 @@ The project structure is straightforward:
 
 Looking to improve your betting knowledge in specific sports? Check out these resources:
 
-- [Football Livescore](https://checklive.com/sport-football) - Learn about value betting in football markets
+- [Football livescore](https://checklive.com/sport-football) - Learn about value betting in football markets
 - [Basketball Livescore](https://checklive.com/sport-basketball) - Expected value concepts for basketball betting
 - [Ice Hockey Livescore](https://checklive.com/sport-ice-hockey) - Finding value in hockey odds
 
@@ -119,7 +119,7 @@ This project is licensed under the MIT License:
 ```
 MIT License
 
-Copyright (c) 2024 Oscar Williams
+Copyright (c) 2025 checklive.com Oscar Williams
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
