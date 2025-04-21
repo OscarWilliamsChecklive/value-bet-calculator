@@ -108,9 +108,9 @@ The project structure is straightforward:
 
 Looking to improve your betting knowledge in specific sports? Check out these resources:
 
-- [Football Betting Guide](https://checklive.com/sport-football) - Learn about value betting in football markets
-- [Basketball Betting Strategy](https://checklive.com/sport-basketball) - Expected value concepts for basketball betting
-- [Ice Hockey Betting Tips](https://checklive.com/sport-ice-hockey) - Finding value in hockey odds
+- [Football Livescore](https://checklive.com/sport-football) - Learn about value betting in football markets
+- [Basketball Livescore](https://checklive.com/sport-basketball) - Expected value concepts for basketball betting
+- [Ice Hockey Livescore](https://checklive.com/sport-ice-hockey) - Finding value in hockey odds
 
 ## License
 
