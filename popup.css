@@ -1,0 +1,355 @@
+/* Value Bet Calculator Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.container {
+  width: 400px;
+  padding: 15px;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+  margin-right: 10px;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a73e8;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+  color: #1a73e8;
+}
+
+.tab-btn.active {
+  color: #1a73e8;
+  border-bottom: 2px solid #1a73e8;
+}
+
+/* Tab Content */
+.tab-pane {
+  display: none;
+  padding: 10px 0;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+/* Form Elements */
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #555;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+input:focus, select:focus {
+  border-color: #1a73e8;
+  outline: none;
+}
+
+select:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.calculate-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.calculate-btn:hover {
+  background-color: #1558b7;
+}
+
+.calculate-btn:disabled {
+  background-color: #a2c0eb;
+  cursor: not-allowed;
+}
+
+/* Results */
+.results-container {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+}
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.result-row:last-child {
+  margin-bottom: 0;
+}
+
+.result-label {
+  font-weight: 500;
+  color: #555;
+}
+
+.result-value {
+  font-weight: 600;
+}
+
+.positive-value {
+  color: #0d904f;
+}
+
+.negative-value {
+  color: #d93025;
+}
+
+/* Switch Toggle */
+.switch-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #1a73e8;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #1a73e8;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.switch-label {
+  font-size: 13px;
+  color: #555;
+}
+
+/* Top 10 Value Bets Table */
+.top-bets-filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.top-bets-filters select {
+  width: 70%;
+}
+
+.top-bets-filters button {
+  padding: 8px 12px;
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.top-bets-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.top-bets-table th, .top-bets-table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.top-bets-table th {
+  font-weight: 500;
+  color: #555;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.top-bets-table tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* API Usage Bar */
+.api-usage {
+  margin-top: 20px;
+  padding: 10px 0;
+  border-top: 1px solid #e0e0e0;
+}
+
+.api-usage-label {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.api-usage-bar-container {
+  height: 10px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.api-usage-bar {
+  height: 100%;
+  background-color: #1a73e8;
+  width: 100%;
+}
+
+.api-usage-count {
+  font-size: 12px;
+  color: #666;
+  text-align: right;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.last-updated {
+  font-size: 12px;
+  color: #666;
+}
+
+#refresh-data {
+  padding: 5px 10px;
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+#refresh-data:hover {
+  background-color: #e2e2e2;
+}
+
+/* Links */
+.links {
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: 1px solid #e0e0e0;
+  font-size: 12px;
+  text-align: center;
+}
+
+.links a {
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+} 

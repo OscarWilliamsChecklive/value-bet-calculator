@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Value Bet Calculator</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="icons/icon-48.png" alt="Value Bet Calculator" class="logo">
+      <h1>Value Bet Calculator</h1>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="manual">Manual Mode</button>
+      <button class="tab-btn" data-tab="auto">Auto Mode</button>
+      <button class="tab-btn" data-tab="top10">Top 10 Value Bets</button>
+    </div>
+
+    <div class="tab-content">
+      <!-- Manual Calculation Mode -->
+      <div class="tab-pane active" id="manual-tab">
+        <div class="form-group">
+          <label for="probability">Your Estimated Probability (%)</label>
+          <input type="number" id="probability" min="1" max="99" placeholder="e.g., 60">
+        </div>
+        <div class="form-group">
+          <label for="odds">Bookmaker Odds</label>
+          <input type="number" id="odds" min="1.01" step="0.01" placeholder="e.g., 2.00">
+        </div>
+        <button class="calculate-btn" id="manual-calculate">Calculate Value</button>
+        
+        <div class="results-container">
+          <div class="result-row">
+            <div class="result-label">Implied Probability:</div>
+            <div class="result-value" id="implied-probability">-</div>
+          </div>
+          <div class="result-row">
+            <div class="result-label">Value:</div>
+            <div class="result-value" id="manual-value-result">-</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Auto Calculation Mode -->
+      <div class="tab-pane" id="auto-tab">
+        <div class="form-group">
+          <label for="sport-select">Sport</label>
+          <select id="sport-select">
+            <option value="">Select Sport</option>
+            <option value="football">Football</option>
+            <option value="basketball">Basketball</option>
+            <option value="hockey">Ice Hockey</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="league-select">League</label>
+          <select id="league-select" disabled>
+            <option value="">Select League</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="match-select">Match</label>
+          <select id="match-select" disabled>
+            <option value="">Select Match</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="market-select">Market</label>
+          <select id="market-select" disabled>
+            <option value="">Select Market</option>
+          </select>
+        </div>
+
+        <div class="switch-container">
+          <label class="switch">
+            <input type="checkbox" id="today-only">
+            <span class="slider round"></span>
+          </label>
+          <span class="switch-label">Today's Matches Only</span>
+        </div>
+
+        <button class="calculate-btn" id="auto-calculate" disabled>Calculate Value</button>
+        
+        <div class="results-container">
+          <div class="result-row">
+            <div class="result-label">Bookmaker Odds:</div>
+            <div class="result-value" id="auto-odds-result">-</div>
+          </div>
+          <div class="result-row">
+            <div class="result-label">Estimated Probability:</div>
+            <div class="result-value" id="auto-probability-result">-</div>
+          </div>
+          <div class="result-row">
+            <div class="result-label">Value:</div>
+            <div class="result-value" id="auto-value-result">-</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Top 10 Value Bets -->
+      <div class="tab-pane" id="top10-tab">
+        <div class="top-bets-filters">
+          <select id="top-bets-sport">
+            <option value="all">All Sports</option>
+            <option value="football">Football</option>
+            <option value="basketball">Basketball</option>
+            <option value="hockey">Ice Hockey</option>
+          </select>
+          <button id="refresh-top-bets">Refresh</button>
+        </div>
+        
+        <div class="top-bets-container">
+          <table class="top-bets-table">
+            <thead>
+              <tr>
+                <th>Match</th>
+                <th>Market</th>
+                <th>Odds</th>
+                <th>Prob</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody id="top-bets-body">
+              <!-- Top bets will be populated here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="api-usage">
+      <div class="api-usage-label">API Calls Remaining:</div>
+      <div class="api-usage-bar-container">
+        <div class="api-usage-bar" id="api-usage-bar"></div>
+      </div>
+      <div class="api-usage-count" id="api-usage-count">10/10</div>
+    </div>
+
+    <div class="footer">
+      <div class="last-updated" id="last-updated">Last updated: Never</div>
+      <button id="refresh-data">↻ Refresh Data</button>
+    </div>
+    
+    <div class="links">
+      <a href="https://checklive.com" target="_blank">Visit Checklive</a> |
+      <a href="https://checklive.com/sport-football" target="_blank">Football</a> |
+      <a href="https://checklive.com/sport-basketball" target="_blank">Basketball</a> |
+      <a href="https://checklive.com/sport-ice-hockey" target="_blank">Ice Hockey</a>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html> 
